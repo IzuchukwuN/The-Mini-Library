@@ -12,6 +12,6 @@ public class Main {
         System.out.println("Password: " + library.getPassword());
         // Calls the cardNum method using the library object
         System.out.println(library.cardNum());
-        System.out.println("Testing update");
+        System.out.println("New Method");
     }
 }
