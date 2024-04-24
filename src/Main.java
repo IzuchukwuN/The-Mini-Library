@@ -9,5 +9,6 @@ public class Main {
         // Retrieve username and password using getters
         System.out.println("Username: " + library.getUsername());
         System.out.println("Password: " + library.getPassword());
+        System.out.println(library.cardNum());
     }
 }
