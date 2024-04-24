@@ -20,6 +20,7 @@ public class LibrarySystem {
         this.password = password;
     }
 
+    // Method that creates a random 9-digit number
     public int cardNum(){
         System.out.print("Your library card number is: ");
         return (int)(Math.random()*(Integer.MAX_VALUE-1000000000))+1000000000;
