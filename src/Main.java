@@ -1,5 +1,6 @@
 public class Main {
     public static void main(String[] args){
+        LibrarySystem.libraryCardCreation();
         LibrarySystem library = new LibrarySystem();
 
         // Set username and password using setters
