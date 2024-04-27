@@ -35,19 +35,19 @@ public class LibrarySystem {
             System.out.println("2. Exit");
             System.out.print("Enter your choice: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            String choice = scanner.nextLine();
+
 
             switch (choice) {
-                case 1:
+                case "enter":
                     System.out.println("Library card created successfully!");
                     break;
-                case 2:
+                case "exit":
                     System.out.println("Exiting the Mini Library!");
                     scanner.close();
                     return;
                 default:
-                    System.out.println("Invalid choice. Please enter 1 or 2.");
+                    System.out.println("Invalid choice. Please input enter or exit.");
             }
         }
     }
