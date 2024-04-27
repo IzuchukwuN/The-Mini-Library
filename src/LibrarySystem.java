@@ -1,4 +1,5 @@
 import java.util.*;
+
 public class LibrarySystem {
     private String username;
     private String password;
@@ -21,39 +22,45 @@ public class LibrarySystem {
         this.password = password;
     }
 
-    // Method that creates a random 9-digit number
-    public int cardNum(){
-        System.out.print("Your library card number is: ");
-        return (int)(Math.random()*(Integer.MAX_VALUE-1000000000))+1000000000;
+    // Method to generate a random 6-digit number
+    public int generateRandomNumber() {
+        return (int) ((Math.random() * 900000) + 100000);
     }
+
+    // Method for library card creation
     public static void libraryCardCreation() {
         Scanner scanner = new Scanner(System.in);
 
-        while (true) {
-            System.out.println("Welcome to the Mini Library!");
-            System.out.println("1. Create a library card");
-            System.out.println("2. Exit");
-            System.out.print("Enter your choice: ");
+        System.out.println("Welcome to the Mini Library!");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+        // Asking the user whether they want to input their username and password
+        System.out.print("Do you want to create your own username and password? (yes/no): ");
+        String choice = scanner.nextLine();
 
-            switch (choice) {
-                case 1:
-                    System.out.println("Library card created successfully!");
-                    break;
-                case 2:
-                    System.out.println("Exiting the Mini Library!");
-                    scanner.close();
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please enter 1 or 2.");
-            }
+        if (choice.equalsIgnoreCase("yes")) {
+            LibrarySystem library = new LibrarySystem();
+            System.out.print("Enter your desired username: ");
+            library.setUsername(scanner.nextLine());
+            System.out.print("Enter your desired password: ");
+            library.setPassword(scanner.nextLine());
+            System.out.println("Username and password set successfully!");
+
+            // Printing the username and password using getters
+            System.out.println("Username: " + library.getUsername());
+            System.out.println("Password: " + library.getPassword());
+        } else if (choice.equalsIgnoreCase("no")) {
+            // Generating a random password
+            LibrarySystem library = new LibrarySystem();
+            String randomPassword = Integer.toString(library.generateRandomNumber());
+            library.setPassword(randomPassword);
+            System.out.println("Randomly generated password: " + library.getPassword());
+        } else {
+            System.out.println("Invalid choice.");
         }
     }
-    public static void main(String[] args) {
-        libraryCardCreation(); // Call the library card creation method
+    // Method that creates a random 9-digit number
+    public int cardNum() {
+        System.out.print("Your library card number is: ");
+        return (int) (Math.random() * (Integer.MAX_VALUE - 1000000000)) + 1000000000;
     }
 }
-
-
