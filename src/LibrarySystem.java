@@ -41,13 +41,14 @@ public class LibrarySystem {
             switch (choice) {
                 case "enter":
                     System.out.println("Library card created successfully!");
-                    break;
+                    return;
                 case "exit":
                     System.out.println("Exiting the Mini Library!");
                     scanner.close();
                     return;
                 default:
                     System.out.println("Invalid choice. Please input enter or exit.");
+                    break;
             }
         }
     }
