@@ -35,26 +35,32 @@ public class LibrarySystem {
             System.out.println("2. Exit");
             System.out.print("Enter your choice: ");
 
-            String choice = scanner.nextLine();
-
+            int choice = scanner.nextInt();
+            scanner.nextLine();
 
             switch (choice) {
-                case "enter":
+                case 1:
+                    // Generate random username and password
+                    String username = "User" + LibrarySystem.cardNum();
+                    String password = "Pass" + LibrarySystem.cardNum();
+                    // Display username, password, and library card number
+                    System.out.println("Your username is: " + username);
+                    System.out.println("Your password is: " + password);
+                    System.out.println("Your library card number is: " + LibrarySystem.cardNum());
                     System.out.println("Library card created successfully!");
                     return;
-                case "exit":
+                case 2:
                     System.out.println("Exiting the Mini Library!");
                     scanner.close();
                     return;
                 default:
-                    System.out.println("Invalid choice. Please input enter or exit.");
+                    System.out.println("Invalid choice. Please enter 1 or 2.");
                     break;
             }
         }
     }
     public static void main(String[] args) {
-        // Call the library card creation method
-        libraryCardCreation();
+        libraryCardCreation(); // Call the library card creation method
     }
 }
 
