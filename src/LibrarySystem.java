@@ -23,7 +23,6 @@ public class LibrarySystem {
 
     // Method that creates a random 9-digit number
     public static int cardNum(){
-        System.out.print("Your library card number is: ");
         return (int)(Math.random()*(Integer.MAX_VALUE-1000000000))+1000000000;
     }
     public static void libraryCardCreation() {
@@ -35,21 +34,20 @@ public class LibrarySystem {
             System.out.println("2. Exit");
             System.out.print("Enter your choice: ");
 
-            int choice = scanner.nextInt();
-            scanner.nextLine();
+            String choice = scanner.nextLine();
 
             switch (choice) {
-                case 1:
+                case "enter":
                     // Generate random username and password
-                    String username = "User" + LibrarySystem.cardNum();
-                    String password = "Pass" + LibrarySystem.cardNum();
+                    String username = "User";
+                    String password = "Pass";
                     // Display username, password, and library card number
                     System.out.println("Your username is: " + username);
                     System.out.println("Your password is: " + password);
                     System.out.println("Your library card number is: " + LibrarySystem.cardNum());
                     System.out.println("Library card created successfully!");
                     return;
-                case 2:
+                case "exit":
                     System.out.println("Exiting the Mini Library!");
                     scanner.close();
                     return;
