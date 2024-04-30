@@ -30,11 +30,11 @@ public class LibrarySystem {
 
         while (true) {
             System.out.println("Welcome to the Mini Library!");
-            System.out.println("1. Create a library card");
-            System.out.println("2. Exit");
+            System.out.println("1. Input " + "Enter " + "to Create a library card");
+            System.out.println("2. Input " + "Exit " + "to leave");
             System.out.print("Enter your choice: ");
 
-            String choice = scanner.nextLine();
+            String choice = scanner.nextLine().toLowerCase();
 
             switch (choice) {
                 case "enter":
@@ -52,7 +52,7 @@ public class LibrarySystem {
                     scanner.close();
                     return;
                 default:
-                    System.out.println("Invalid choice. Please enter 1 or 2.");
+                    System.out.println("Invalid choice. Please input enter or exit.");
                     break;
             }
         }
