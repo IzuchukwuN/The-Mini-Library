@@ -39,8 +39,10 @@ public class LibrarySystem {
             switch (choice) {
                 case "enter":
                     // Generate random username and password
-                    String username = "User";
-                    String password = "Pass";
+                    System.out.print("Enter a username: ");
+                    String username = scanner.nextLine();
+                    System.out.print("Enter a password");
+                    String password = scanner.nextLine();
                     // Display username, password, and library card number
                     System.out.println("Your username is: " + username);
                     System.out.println("Your password is: " + password);
