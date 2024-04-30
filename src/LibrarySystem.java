@@ -41,7 +41,7 @@ public class LibrarySystem {
                     // Generate random username and password
                     System.out.print("Enter a username: ");
                     String username = scanner.nextLine();
-                    System.out.print("Enter a password");
+                    System.out.print("Enter a password: ");
                     String password = scanner.nextLine();
                     // Display username, password, and library card number
                     System.out.println("Your username is: " + username);
