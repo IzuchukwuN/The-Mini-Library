@@ -46,7 +46,8 @@ public class LibrarySystem {
                     // Display username, password, and library card number
                     System.out.println("Your username is: " + username);
                     System.out.println("Your password is: " + password);
-                    System.out.println("Your library card number is: " + LibrarySystem.cardNum());
+                    int number = LibrarySystem.cardNum();
+                    System.out.println("Your library card number is: " + number);
                     System.out.println("Library card created successfully!");
                     return;
                 case "exit":
