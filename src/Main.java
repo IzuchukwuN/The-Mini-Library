@@ -1,4 +1,5 @@
-import java.util.ArrayList;
+//import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Main {
@@ -11,7 +12,6 @@ public class Main {
         LibraryGuide guide = new LibraryGuide();
         Book book = new Book();
         //List<String[]> searchQuery = guide.searchQuery(String query, Book book);
-
 
 
         // Set username and password using setters
@@ -35,7 +35,7 @@ public class Main {
     private static <searchQuery> List<String[]> getFiction(LibraryGuide guide, Book book) {
         return guide.searchQuery("Fiction", book);
         //print search results
-        String[][] searchResults = new String[0][];
+        String searchResults = Arrays.toString(new String[0][]);
         if (searchResults.isEmpty()) {
             System.out.println("No matching books found.");
         } else {
