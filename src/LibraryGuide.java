@@ -1,3 +1,4 @@
+import java.util.Random;
 
 public class LibraryGuide {
     // Private variables to store information about a library guide
@@ -34,6 +35,23 @@ public class LibraryGuide {
 
     public String getPhoneNumber() {
         return phoneNumber;
+    }
 
+    // Method to randomly select a book
+    public void selectRandomBook() {
+
+        // Create an instance of the Book class
+        Book book = new Book();
+
+        // Generate a random index between 0 and the length of the books array
+        int randomIndex = (int) (Math.random() * book.books.length);
+
+        // Print the book at the random index
+        String[] selectedBook = book.books[randomIndex];
+
+        System.out.println("Randomly selected book:");
+        System.out.println("Title: " + selectedBook[0]);
+        System.out.println("Pages: " + selectedBook[1]);
+        System.out.println("Genre: " + selectedBook[2]);
     }
 }
