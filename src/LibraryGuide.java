@@ -1,6 +1,6 @@
-import java.util.Random;
 
-public class LibraryGuide {
+import java.util.Random;
+public class LibraryGuide extends LibrarySystem {
     // Private variables to store information about a library guide
     private String name;
     private String email;
@@ -53,5 +53,10 @@ public class LibraryGuide {
         System.out.println("Title: " + selectedBook[0]);
         System.out.println("Pages: " + selectedBook[1]);
         System.out.println("Genre: " + selectedBook[2]);
+    }
+
+    public static void search(){
+        System.out.println("Would you like to search for a book by name, pages, or genre?");
+
     }
 }

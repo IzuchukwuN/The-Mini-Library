@@ -6,7 +6,7 @@ public class Main {
 
     public static void main(String[] args) {
         LibrarySystem.libraryCardCreation();
-        LibrarySystem library = new LibrarySystem();
+        /*LibrarySystem library = new LibrarySystem();
 
 
         // Set username and password using setters
@@ -24,7 +24,8 @@ public class Main {
         System.out.println("Name: " + guide.getName());
         System.out.println("Email: " + guide.getEmail());
         System.out.println("Employee ID: " + guide.getEmployeeId());
-        System.out.println("Phone Number: " + guide.getPhoneNumber());
+        System.out.println("Phone Number: " + guide.getPhoneNumber());*/
+
     }
 }
 
