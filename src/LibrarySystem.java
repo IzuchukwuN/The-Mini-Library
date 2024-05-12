@@ -1,23 +1,24 @@
-import java.util.*;
+import java.util.Scanner;
+
 public class LibrarySystem {
-    private String username;
+    protected String username;
     private String password;
 
     // Getter and setter for username
-    public String getUsername() {
+    protected String getUsername() {
         return username;
     }
 
-    public void setUsername(String username) {
+    protected void setUsername(String username) {
         this.username = username;
     }
 
     // Getter and setter for password
-    public String getPassword() {
+    protected String getPassword() {
         return password;
     }
 
-    public void setPassword(String password) {
+    protected void setPassword(String password) {
         this.password = password;
     }
 
@@ -25,6 +26,7 @@ public class LibrarySystem {
     public int cardNum(){
         return (int)(Math.random()*(Integer.MAX_VALUE-1000000000))+1000000000;
     }
+
     public static void libraryCardCreation() {
         LibrarySystem num = new LibrarySystem();
         LibraryGuide book = new LibraryGuide();
@@ -43,11 +45,15 @@ public class LibrarySystem {
                     // Generate random username and password
                     System.out.print("Enter a username: ");
                     String username = scanner.nextLine();
+                    num.setUsername(username);
+
                     System.out.print("Enter a password: ");
                     String password = scanner.nextLine();
+                    num.setPassword(password);
+
                     // Display username, password, and library card number
-                    System.out.println("Your username is: " + username);
-                    System.out.println("Your password is: " + password);
+                    System.out.println("Your username is: " + num.getUsername());
+                    System.out.println("Your password is: " + num.getPassword());
                     int number = num.cardNum();
                     System.out.println("Your library card number is: " + number);
                     System.out.println("Library card created successfully!");
@@ -60,15 +66,10 @@ public class LibrarySystem {
                 default:
                     System.out.println("Invalid choice. Please input enter or exit.");
                     break;
-
             }
         }
     }
-
     /*public static void main(String[] args) {
         libraryCardCreation(); // Call the library card creation method
     }*/
-
 }
-
-

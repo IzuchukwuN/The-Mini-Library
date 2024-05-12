@@ -1,6 +1,3 @@
-
-import java.util.Random;
-import java.util.*;
 public class LibraryGuide extends LibrarySystem {
     // Private variables to store information about a library guide
     private String name;
@@ -41,7 +38,7 @@ public class LibraryGuide extends LibrarySystem {
     public void Guide(){
         int i = 1;
         LibrarySystem book = new LibrarySystem();
-        Scanner scanner = new Scanner(System.in);
+        java.util.Scanner scanner = new java.util.Scanner(System.in);
         while(i == 1) {
             System.out.println("Would you like a random book or search for a book");
             String choice2 = scanner.nextLine().toLowerCase();
@@ -57,18 +54,14 @@ public class LibraryGuide extends LibrarySystem {
                 System.out.println("Try Again");
             }
         }
-
     }
 
     // Method to randomly select a book
     public void selectRandomBook() {
-
         // Create an instance of the Book class
         Book book = new Book();
-
         // Generate a random index between 0 and the length of the books array
         int randomIndex = (int) (Math.random() * book.books.length);
-
         // Print the book at the random index
         String[] selectedBook = book.books[randomIndex];
 
@@ -81,7 +74,7 @@ public class LibraryGuide extends LibrarySystem {
     public static void search(){
         int i = 1;
         int j = 0;
-        Scanner input = new Scanner(System.in);
+        java.util.Scanner input = new java.util.Scanner(System.in);
         while (i == 1) {
             System.out.println("Would you like to search for a book by pages or genre?");
             String pG = input.nextLine();
@@ -95,7 +88,5 @@ public class LibraryGuide extends LibrarySystem {
                 System.out.println("Try Again");
             }
         }
-
-
     }
 }
