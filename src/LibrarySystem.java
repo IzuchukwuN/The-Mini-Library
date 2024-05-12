@@ -27,6 +27,7 @@ public class LibrarySystem {
     }
     public static void libraryCardCreation() {
         LibrarySystem num = new LibrarySystem();
+        LibraryGuide book = new LibraryGuide();
         Scanner scanner = new Scanner(System.in);
 
         while (true) {
@@ -50,6 +51,7 @@ public class LibrarySystem {
                     int number = num.cardNum();
                     System.out.println("Your library card number is: " + number);
                     System.out.println("Library card created successfully!");
+                    book.Guide();
                     return;
                 case "exit":
                     System.out.println("Exiting the Mini Library!");
