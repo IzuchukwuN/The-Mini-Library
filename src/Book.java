@@ -1,3 +1,6 @@
+/**
+ * The Book class stores information about various books.
+ */
 public class Book {
     String[][] books = {
             {"The Catcher in the Rye", "277", "Fiction"},
