@@ -2,56 +2,39 @@
  * The Book class stores information about various books.
  */
 public class Book {
-    String[][] books = {
-            {"The Catcher in the Rye", "277", "Fiction"},
-            {"To Kill a Mockingbird", "324", "Fiction"},
-            {"1984", "328", "Science Fiction"},
-            {"Pride and Prejudice", "279", "Romance"},
-            {"The Great Gatsby", "180", "Fiction"},
-            {"The Hobbit", "310", "Fantasy"},
-            {"The Da Vinci Code", "454", "Mystery"},
-            {"Harry Potter and the Sorcerer's Stone", "309", "Fantasy"},
-            {"The Lord of the Rings: The Fellowship of the Ring", "398", "Fantasy"},
-            {"The Hunger Games", "374", "Young Adult"},
-            {"The Alchemist", "197", "Fiction"},
-            {"The Road", "241", "Post-apocalyptic Fiction"},
-            {"A Game of Thrones", "694", "Fantasy"},
-            {"The Girl with the Dragon Tattoo", "590", "Mystery"},
-            {"Gone Girl", "432", "Mystery"},
-            {"The Shining", "447", "Horror"},
-            {"The Help", "522", "Historical Fiction"},
-            {"The Fault in Our Stars", "313", "Young Adult"},
-            {"The Martian", "369", "Science Fiction"},
-            {"The Handmaid's Tale", "311", "Dystopian Fiction"},
-            {"Dune", "412", "Science Fiction"},
-            {"The Kite Runner", "371", "Fiction"},
-            {"The Picture of Dorian Gray", "251", "Gothic Fiction"},
-            {"A Brief History of Time", "212", "Non-fiction"},
-            {"The Count of Monte Cristo", "1276", "Adventure"},
-            {"Frankenstein", "280", "Gothic/Horror"},
-            {"Sapiens: A Brief History of Humankind", "443", "Non-fiction"},
-            {"Brave New World", "288", "Science Fiction"},
-            {"The Odyssey", "541", "Epic Poetry"},
-            {"Wuthering Heights", "348", "Romance"},
-            {"Moby-Dick", "615", "Adventure"},
-            {"The Adventures of Sherlock Holmes", "307", "Mystery"},
-            {"Anna Karenina", "864", "Fiction"},
-            {"The Chronicles of Narnia: The Lion, the Witch and the Wardrobe", "206", "Fantasy"},
-            {"One Hundred Years of Solitude", "417", "Fiction"},
-            {"The Road Less Traveled", "316", "Non-fiction"},
-            {"Les Misérables", "1463", "Historical Fiction"},
-            {"Crime and Punishment", "671", "Fiction"},
-            {"The Grapes of Wrath", "464", "Fiction"},
-            {"The Adventures of Huckleberry Finn", "366", "Adventure"},
-            {"The Secret Garden", "331", "Children's Literature"},
-            {"A Tale of Two Cities", "341", "Historical Fiction"},
-            {"The Old Man and the Sea", "127", "Fiction"},
-            {"The Road to Serfdom", "274", "Non-fiction"},
-            {"The Stand", "1152", "Post-apocalyptic Fiction"},
-            {"Watership Down", "478", "Fantasy"},
-            {"The Sun Also Rises", "251", "Fiction"},
-            {"The Bell Jar", "244", "Fiction"},
-            {"Middlemarch", "880", "Fiction"},
-            {"Beloved", "275", "Historical Fiction"}
+
+    protected String title;
+    protected int pages;
+    protected String genre;
+
+    // Constructor for creating a Book object
+    public Book(String title, int pages, String genre) {
+        this.title = title;
+        this.pages = pages;
+        this.genre = genre;
+    }
+
+    public void displayBookInfo() {
+        System.out.println("Book: " + title + ", " + pages + " pages, Genre: " + genre);
+    }
+    public static Book[] books = {
+            new FictionBook("The Catcher in the Rye", 277, "Fiction"),
+            new FictionBook("To Kill a Mockingbird", 324, "Fiction"),
+            new FictionBook("The Great Gatsby", 180, "Fiction"),
+            new FictionBook("The Alchemist", 197, "Fiction"),
+            new FictionBook("The Road", 241, "Fiction"),
+            new FictionBook("The Kite Runner", 371, "Fiction"),
+            new FictionBook("Anna Karenina", 864, "Fiction"),
+            new FictionBook("One Hundred Years of Solitude", 417, "Fiction"),
+            new FictionBook("Crime and Punishment", 671, "Fiction"),
+            new FictionBook("The Grapes of Wrath", 464, "Fiction"),
+            new FictionBook("The Old Man and the Sea", 127, "Fiction"),
+            new FictionBook("The Sun Also Rises", 251, "Fiction"),
+            new FictionBook("The Bell Jar", 244, "Fiction"),
+            new FictionBook("Middlemarch", 880, "Fiction"),
+            new NonFictionBook("A Brief History of Time", 212, "Non-fiction"),
+            new NonFictionBook("Sapiens: A Brief History of Humankind", 443, "Non-fiction"),
+            new NonFictionBook("The Road Less Traveled", 316, "Non-fiction"),
+            new NonFictionBook("The Road to Serfdom", 274, "Non-fiction")
     };
 }
