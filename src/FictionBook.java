@@ -1,4 +1,4 @@
-public class FictionBook extends Book {
+public class FictionBook extends AbstractBook {
         public FictionBook(String title, int pages, String genre) {
             super(title, pages, genre);
         }
