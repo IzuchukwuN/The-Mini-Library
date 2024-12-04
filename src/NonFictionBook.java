@@ -1,4 +1,4 @@
-class NonFictionBook extends Book {
+class NonFictionBook extends AbstractBook {
     public NonFictionBook(String title, int pages, String genre) {
         super(title, pages, genre);
     }
