@@ -7,7 +7,7 @@ public class Book implements BookOperations  {
     protected String title;
     protected int pages;
     protected String genre;
-    protected boolean isBorrowed;
+    private boolean isBorrowed;
     
     // Constructor for creating a Book object
     public Book(String title, int pages, String genre) {
@@ -17,8 +17,34 @@ public class Book implements BookOperations  {
         this.isBorrowed = false; // default
     }
 
+    // Borrowing the book 
+    @Override
+    public void borrowBook() { 
+        if (isBorrowed) { 
+            System.out.println("Book is already borrowed: " + title); 
+        } else { 
+            isBorrowed = true; 
+            System.out.println("Book borrowed: " + title); 
+        }
+    }
+    
+    // Returning the book 
+    @Override 
+    public void returnBook() { 
+        if (!isBorrowed) { 
+            System.out.println("Book is not currently borrowed: " + title);
+        } else {
+            isBorrowed = false;
+            System.out.println("Book returned: " + title); 
+        } 
+    }
+    
     public void displayBookInfo() {
         System.out.println("Book: " + title + ", " + pages + " pages, Genre: " + genre);
+    }
+
+    public boolean isBorrowed() {
+        return isBorrowed;
     }
     public static Book[] books = {
             new FictionBook("The Catcher in the Rye", 277, "Fiction"),
