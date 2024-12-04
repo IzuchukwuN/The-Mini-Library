@@ -1,17 +1,20 @@
 /**
  * The Book class stores information about various books.
  */
-public class Book {
+
+public class Book implements BookOperations  {
 
     protected String title;
     protected int pages;
     protected String genre;
-
+    protected boolean isBorrowed;
+    
     // Constructor for creating a Book object
     public Book(String title, int pages, String genre) {
         this.title = title;
         this.pages = pages;
         this.genre = genre;
+        this.isBorrowed = false; // default
     }
 
     public void displayBookInfo() {
