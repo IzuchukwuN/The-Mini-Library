@@ -1,96 +1,60 @@
-import java.util.Scanner;
+import java.util.*;
 
 public class LibrarySystem {
-    private String username;
-    private String password;
+    private Set<String> isbnSet;
+    private Map<String, AbstractBook> searchByISBN;
+    private Map<String, AbstractBook> searchByTitle;
 
-    // Getter and setter for username
-    /**
-     * Getter for the username.
-     * @return The username.
-     */
-    private String getUsername() {
-        return username;
+    public LibrarySystem() {
+        isbnSet = new HashSet<>();
+        searchByISBN = new HashMap<>();
+        searchByTitle = new HashMap<>();
     }
 
-    /**
-     * Setter for the username.
-     * @param username The username to set.
-     */
-    private void setUsername(String username) {
-        this.username = username;
+    public boolean addBook(AbstractBook book) {
+        if (isbnSet.contains(book.getISBN())) {
+            System.out.println("This ISBN is a duplicate: " + book.getISBN());
+            return false;
+        }
+        isbnSet.add(book.getISBN());
+        searchByISBN.put(book.getISBN(), book);
+        searchByTitle.put(book.getTitle().toLowerCase(), book);
+        System.out.println("Book added: " + book.getTitle());
+        return true;
     }
 
-    // Getter and setter for password
-    /**
-     * Getter for the password.
-     * @return The password.
-     */
-    private String getPassword() {
-        return password;
+    public boolean removeBook(String isbn) {
+        AbstractBook book = searchByISBN.remove(isbn);
+        if (book != null) {
+            searchByTitle.remove(book.getTitle().toLowerCase());
+            isbnSet.remove(isbn);
+            System.out.println("Book removed: " + book.getTitle());
+            return true;
+        }
+        System.out.println("Book not found: " + isbn);
+        return false;
     }
 
-    /**
-     * Setter for the password.
-     * @param password The password to set.
-     */
-    private void setPassword(String password) {
-        this.password = password;
+    public AbstractBook searchByISBN(String isbn) {
+        return searchByISBN.get(isbn);
     }
 
-    // Method that creates a random 9-digit number
-    /**
-     * Generates a random 9-digit number.
-     * @return A random 9-digit number.
-     */
-    public int cardNum(){
-        return (int)(Math.random()*(Integer.MAX_VALUE-1000000000))+1000000000;
+    public AbstractBook searchByTitle(String title) {
+        return searchByTitle.get(title.toLowerCase());
     }
 
-    public static void libraryCardCreation() {
-        LibrarySystem num = new LibrarySystem();
-        LibraryGuide book = new LibraryGuide();
-
-        Scanner scanner = new Scanner(System.in);
-
-        while (true) {
-            System.out.println("Welcome to the Mini Library!");
-            System.out.println("1. Input Enter to Create a library card");
-            System.out.println("2. Input Exit to leave");
-            System.out.print("Enter your choice: ");
-
-            String choice = scanner.nextLine().toLowerCase();
-
-            switch (choice) {
-                case "enter":
-                    // Generate random username and password
-                    System.out.print("Enter a username: ");
-                    String username = scanner.nextLine();
-                    num.setUsername(username);
-
-                    System.out.print("Enter a password: ");
-                    String password = scanner.nextLine();
-                    num.setPassword(password);
-
-                    // Display username, password, and library card number
-                    System.out.println("Your username is: " + num.getUsername());
-                    System.out.println("Your password is: " + num.getPassword());
-                    int number = num.cardNum();
-                    System.out.println("Your library card number is: " + number);
-                    System.out.println("Library card created successfully!");
-                    System.out.println("Hello I will be your guide, here is my information");
-                    LibraryGuide guide = new LibraryGuide("Name: Thomas","Email: thomas@gmail.com","ID: 4729844924","Phone number: 240-956-3728");
-                    System.out.println("Lets get started");
-                    book.Guide();
-                    return;
-                case "exit":
-                    System.out.println("Exiting the Mini Library!");
-                    scanner.close();
-                    return;
-                default:
-                    System.out.println("Invalid choice. Please input enter or exit.");
-                    break;
+    public void displayAllBooks() {
+        if (searchByISBN.isEmpty()) {
+            System.out.println("No books in the library.");
+        } else {
+            System.out.println("Books in the library:");
+            for (AbstractBook book : searchByISBN.values()) {
+                book.displayBookInfo();
             }
         }
     }
+
+
+
 }
+

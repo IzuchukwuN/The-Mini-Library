@@ -1,10 +1,10 @@
 class NonFictionBook extends AbstractBook {
-    public NonFictionBook(String title, int pages, String genre) {
-        super(title, pages, genre);
+    public NonFictionBook(String title, String isbn, String genre) {
+        super(title, isbn, genre);
     }
 
     @Override
     public void displayBookInfo() {
-        System.out.println("Non-Fiction Book: " + title + ", " + pages + " pages, Genre: " + genre);
+        System.out.println("Non-Fiction Book: " + title + ", isbn: " + getISBN() + ", Genre: " + genre);
     }
 }

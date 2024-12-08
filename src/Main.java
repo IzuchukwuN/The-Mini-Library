@@ -4,86 +4,48 @@
 import java.util.*;
 
 public class Main {
+
+    private static LibrarySystem librarySystem = new LibrarySystem();
+    private static Scanner input = new Scanner(System.in);
+
     public static void main(String[] args) {
-        Library library = new Library();
-        Scanner scanner = new Scanner(System.in);
+        AbstractBook book1 = new FictionBook("The Catcher in the Rye", "232342", "Fiction");
+        AbstractBook book2 = new NonFictionBook("Sapiens: A Brief History of Humankind", "432523", "Non-fiction");
 
-        System.out.println("Hello");
-        System.out.println("Create an account to get started.");
+        librarySystem.addBook(book1);
+        librarySystem.addBook(book2);
 
-        // Create a user account
-        System.out.print("Enter username: ");
-        String username = scanner.nextLine();
-        System.out.print("Enter password: ");
-        String password = scanner.nextLine();
-        User user = new User(username, password);
 
-        boolean exit = false;
-        while (!exit) {
-            System.out.println("\nMenu:");
-            System.out.println("1. View all books");
-            System.out.println("2. Search by title");
-            System.out.println("3. Search by genre");
-            System.out.println("4. Borrow a book");
-            System.out.println("5. Return a book");
-            System.out.println("6. View borrowed books");
-            System.out.println("7. Exit");
-            System.out.print("Enter your choice: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Consume newline
 
-            switch (choice) {
-                case 1: // View all books
-                    library.displayAllBooks();
-                    break;
+        removeByISBN();
+        librarySystem.displayAllBooks();
+    }
 
-                case 2: // Search by title
-                    System.out.print("Enter book title: ");
-                    String title = scanner.nextLine();
-                    library.searchByTitle(title);
-                    break;
-
-                case 3: // Search by genre
-                    System.out.print("Enter genre: ");
-                    String genre = scanner.nextLine();
-                    library.searchByGenre(genre);
-                    break;
-
-                case 4: // Borrow a book
-                    System.out.print("Enter the title of the book to borrow: ");
-                    String borrowTitle = scanner.nextLine();
-                    for (Book book : Book.books) {
-                        if (book.title.equalsIgnoreCase(borrowTitle)) {
-                            user.borrowBook(book);
-                            break;
-                        }
-                    }
-                    break;
-
-                case 5: // Return a book
-                    System.out.print("Enter the title of the book to return: ");
-                    String returnTitle = scanner.nextLine();
-                    for (Book book : Book.books) {
-                        if (book.title.equalsIgnoreCase(returnTitle)) {
-                            user.returnBook(book);
-                            break;
-                        }
-                    }
-                    break;
-
-                case 6: // View borrowed books
-                    user.displayBorrowedBooks();
-                    break;
-
-                case 7: // Exit
-                    System.out.println("Thank you for using the Library System!");
-                    exit = true;
-                    break;
-
-                default:
-                    System.out.println("Invalid choice. Try again.");
-            }
+    public static void searchISBN(){
+        System.out.println("Enter the isbn you want to search for: ");
+        String isbn = input.nextLine();
+        AbstractBook found1 = librarySystem.searchByISBN(isbn);
+        if (found1 != null) {
+            found1.displayBookInfo();
         }
-        scanner.close();
+        else {
+            System.out.println("Book not found by ISBN.");
+        }
+    }
+    public static void removeByISBN(){
+        System.out.println("Enter the isbn you wish to remove: ");
+        String isbn = input.nextLine();
+        librarySystem.removeBook(isbn);
+    }
+    public static void searchTitle(){
+        System.out.println("Enter the title you want to search for: ");
+        String title = input.nextLine();
+        AbstractBook found1 = librarySystem.searchByTitle(title);
+        if (found1 != null) {
+            found1.displayBookInfo();
+        } else {
+            System.out.println("Book not found by Title.");
+        }
     }
 }
+
