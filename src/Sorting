@@ -1,1 +1,68 @@
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
 
+public class Sorting {
+	
+	private List<AbstractBook> books; // Initialize the books list
+
+    // Constructor to initialize the books list
+    public Sorting() {
+        this.books = new ArrayList<>();
+    }
+
+    // Constructor to accept a pre-existing books list
+    public Sorting(List<AbstractBook> books) {
+        this.books = books;
+    }
+
+    // Method to add a book to the list
+    public void addBook(AbstractBook book) {
+        books.add(book);
+    }
+
+    // Sort books by attribute
+    public void sortBooksByAttribute(Comparator<AbstractBook> comparator) {
+        if (books == null || books.isEmpty()) {
+            System.out.println("No books to sort.");
+            return;
+        }
+        quickSort(books, 0, books.size() - 1, comparator);
+        System.out.println("Books sorted successfully.");
+    }
+
+    // Quick sort algorithm
+    private void quickSort(List<AbstractBook> list, int low, int high, Comparator<AbstractBook> comparator) {
+        if (low < high) {
+            int partitionIndex = partition(list, low, high, comparator);
+            quickSort(list, low, partitionIndex - 1, comparator);
+            quickSort(list, partitionIndex + 1, high, comparator);
+        }
+    }
+
+    // Partition logic for quick sort
+    private int partition(List<AbstractBook> list, int low, int high, Comparator<AbstractBook> comparator) {
+        AbstractBook pivot = list.get(high);
+        int i = low - 1;
+        for (int j = low; j < high; j++) {
+            if (comparator.compare(list.get(j), pivot) <= 0) {
+                i++;
+                Collections.swap(list, i, j);
+            }
+        }
+        Collections.swap(list, i + 1, high);
+        return i + 1;
+    }
+
+    // Display all books (optional utility)
+    public void displayBooks() {
+        if (books.isEmpty()) {
+            System.out.println("No books in the list.");
+            return;
+        }
+        for (AbstractBook book : books) {
+            book.displayBookInfo();
+        }
+    }
+}
