@@ -1,0 +1,29 @@
+import java.util.LinkedList;
+import java.util.Queue;
+
+class ListStacksQueues {
+
+	class BookRequest {
+	    private String isbn;
+	    private AbstractBook book;
+	    
+	    // ... (constructor and getters/setters)
+	}
+
+	class LibrarySystem {
+	    private Queue<BookRequest> bookRequestQueue = new LinkedList<>();
+	    
+	    public void requestBook(String isbn, AbstractBook book) {
+	        bookRequestQueue.add(new BookRequest());
+	    }
+	    
+	    public void processBookRequests() {
+	        while (!bookRequestQueue.isEmpty()) {
+	            BookRequest request = bookRequestQueue.poll();
+	            // Process the request (e.g., notify librarian, reserve book)
+	            // ...
+	        }
+	    }
+
+	}	
+}
