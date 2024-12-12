@@ -36,10 +36,19 @@ abstract class AbstractBook implements Serializable, BookOperations {
     }
 
     // Method to add a book to the library
-    public void addBook(AbstractBook book) {
-        books.add(book);
-        System.out.println("Book added: " + book);
-    }
+    public boolean addBook(AbstractBook book) {
+            //Checks for the isbn in the system
+            if (isbnSet.contains(book.getISBN())) {
+                System.out.println("This ISBN is a duplicate: " + book.getISBN());
+                return false;
+            }
+            //Stores the book in lower case to avoid case sensitive searches
+            isbnSet.add(book.getISBN());
+            searchByISBN.put(book.getISBN(), book);
+            searchByTitle.put(book.getTitle().toLowerCase(), book);
+            System.out.println("Book added: " + book.getTitle());
+            return true;
+        }
 
     // Method to display all books
     public void displayAllBooks() {
