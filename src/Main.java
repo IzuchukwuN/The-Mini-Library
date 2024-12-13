@@ -76,7 +76,7 @@ public class Main {
             String title = input.nextLine();
             System.out.print("Enter the ISBN of the book: ");
             String isbn = input.nextLine();
-            System.out.print("Enter the genre (Fiction/Non-fiction): ");
+            System.out.print("Enter either Fiction or Non-fiction: ");
             String genre = input.nextLine();
 
             //Creates a book based on the type of book it is
